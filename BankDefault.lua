@@ -30,13 +30,11 @@ end
 function BankDefault.OnBankOpen(event, bankBag)
     --  if bankBag ~= BANK_BAG then return end
     d("Viewing bank bag", bankBag)
-    if IsBankOpen() then
-        local bag = GetBankingBag()
+        local bag = bankBag or GetBankingBag()
         local size = GetBagSize(bag)
-        d("The current bank can hold " .. size .. " items.")
+        d(string.format("The current bank %s can hold %d items", tostring(bag), size))
         d("Saving your money won't earn you interest in Tamriel, but guards can only confiscate the gold you have on your person.")
         zo_callLater(function () selectDeposit() end,3000)
-    end
 end
 
 function selectDeposit()
