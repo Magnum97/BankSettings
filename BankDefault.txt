@@ -1,0 +1,8 @@
+## Title: Mag's BankDefault
+## APIVersion: 100031
+## Description: Set default bank screen
+## Author: Magnum1997
+## Version: 0.0.1
+## DependsOn: PersonalAssistant
+
+BankDefault.lua
