@@ -1,6 +1,5 @@
 -- First, we create a namespace for our addon by declaring a top-level table that will hold everything else.
 BankDefault = {}
-local PAEM = PA.EventManager
 
 -- This isn't strictly necessary, but we'll use this string later when registering events.
 -- Better to define it in a single place rather than retyping the same string.
@@ -31,6 +30,16 @@ end
 function BankDefault.OnBankOpen(event, bankBag)
     --  if bankBag ~= BANK_BAG then return end
     d("Viewing bank bag", bankBag)
+    if IsBankOpen() then
+        local bag = GetBankingBag()
+        local size = GetBagSize(bag)
+        d("The current bank can hold " .. size .. " items.")
+        d("Saving your money won't earn you interest in Tamriel, but guards can only confiscate the gold you have on your person.")
+        zo_callLater(function () selectDeposit() end,3000)
+    end
+end
+
+function selectDeposit()
     ZO_MenuBar_SelectDescriptor(ZO_PlayerBankMenuBar, SI_BANK_DEPOSIT)
 end
 
