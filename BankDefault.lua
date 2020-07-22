@@ -28,19 +28,24 @@ function BankDefault.OnAddOnLoaded(event, addonName)
 end
 
 function BankDefault.OnBankOpen(event, bankBag)
-    --  if bankBag ~= BANK_BAG then return end
-    d("Viewing bank bag", bankBag)
-    if IsBankOpen() then
-        local bag = GetBankingBag()
-        local size = GetBagSize(bag)
-        d("The current bank can hold " .. size .. " items.")
-        d("Saving your money won't earn you interest in Tamriel, but guards can only confiscate the gold you have on your person.")
-        zo_callLater(function () selectDeposit() end,3000)
-    end
+    local bankScene = SCENE_MANAGER:GetScene("bank")
+    bankScene:RegisterCallback("StateChange", function(oldState, newState)
+        if newState == SCENE_SHOWING then
+            selectDeposit()
+        end
+    end)
 end
 
 function selectDeposit()
+    -- Two method that work shown below. When run with debug or /script command
+    -- with the bank window open it works perfectly.
+    -- Run in callback the item categories misalign.
+    -- Can be fixed by clicking withdraw button.
+
     ZO_MenuBar_SelectDescriptor(ZO_PlayerBankMenuBar, SI_BANK_DEPOSIT)
+
+    --local bankFragmentBar = ZO_SceneFragmentBar:New(ZO_PlayerBankMenuBar)
+    --bankFragmentBar:SelectFragment(SI_BANK_DEPOSIT)
 end
 
 function BankDefault.OnBankClose(event, bankBag)
