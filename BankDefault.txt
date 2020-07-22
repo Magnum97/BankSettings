@@ -1,6 +1,6 @@
 ## Title: Mag's BankDefault
 ## APIVersion: 100031
-## Description: Set default bank screen
+## Description: Default to deposit tab when opening bank
 ## Author: Magnum1997
 ## Version: 0.0.1
 
