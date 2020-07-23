@@ -1,0 +1,7 @@
+## Title: Mag's BankDefault
+## APIVersion: 100031
+## Description: Default to deposit tab when opening bank
+## Author: Magnum1997
+## Version: 0.0.1
+
+BankDefault.lua
