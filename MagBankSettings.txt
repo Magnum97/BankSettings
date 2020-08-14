@@ -1,7 +1,7 @@
-## Title: Mag's BankSettings
+## Title: MagBankSettings
 ## APIVersion: 100031
 ## Description: Shows Deposit tab when opening bank bag.
 ## Author: @Magnum1997
-## Version: 0.0.3
+## Version: 0.0.5
 
-BankDefault.lua
+MagBankSettings.lua
