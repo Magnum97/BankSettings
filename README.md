@@ -12,6 +12,10 @@ I recommend using [Minion](http://minion.gg) but if not possible or you prefer t
 
 If you have questions, need help or find a problem to report you can do so in [Github Issues](https://github.com/Magnum97/BankSettings/issues).
 
+### Known Issues
+
+Opening a House Bank (storage coffer) is not working. It seems addon is not receiving the callback from coffers. Looking at how this might be fixed.
+
 ---
 
 ##### This Add-on is not created by, affiliated with or sponsored by ZeniMax Media Inc. or its affiliates. The Elder Scrolls® and related logos are registered trademarks or trademarks of ZeniMax Media Inc. in the United States and/or other countries. All rights reserved.
