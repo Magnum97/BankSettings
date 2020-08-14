@@ -1,6 +1,6 @@
 # BankSettings
 
-This add-on allows you to change the default bank screen in Elder Scrolls Online.
+This add-on changes the default bank screen in Elder Scrolls Online.
 
 A problem I often run into is, that I am often in a hurry to dump loot in the bank and get back to more looting. So I go open my bank but then I **fill up** my bag instead of emptying it because it defaults to the withdraw tab. This will change that so instead the first tab you see when opening your bank is your inventory in the deposit tab.
 
