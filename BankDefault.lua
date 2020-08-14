@@ -22,14 +22,13 @@ function BankSettings:Initialize()
     end)
 end
 
-function BankSettings.selectDeposit(bankBag)
-    if (IsBankOpen and IsHouseBankBag(bankBag)) then
-        d("Bag is house bank")
-        ZO_MenuBar_SelectDescriptor(ZO_HouseBankMenuBar, SI_BANK_DEPOSIT, true, true)
-    else
-        d("Bag is normal bank")
-        ZO_MenuBar_SelectDescriptor(ZO_PlayerBankMenuBar, SI_BANK_DEPOSIT, true, true)
-    end
+function BankSettings.selectDeposit()
+    --d(IsHouseBankBag(GetBankingBag())) -- TODO Investigate why not callback when house bank opened
+    --if (IsHouseBankBag(GetBankingBag())) then
+    --    ZO_MenuBar_SelectDescriptor(ZO_HouseBankMenuBar, SI_BANK_DEPOSIT)
+    --else
+        ZO_MenuBar_SelectDescriptor(ZO_PlayerBankMenuBar, SI_BANK_DEPOSIT)
+    --end
 end
 
 -- When any addon is loaded, but before UI (Chat) is loaded.
