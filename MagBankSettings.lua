@@ -1,6 +1,6 @@
 MagBankSettings = {
     name = "MagBankSettings", -- Matches folder and Manifest file names.
-    version = "0.0.5", -- A nuisance to match to the Manifest.
+    version = "0.0.6", -- A nuisance to match to the Manifest.
     author = "@Magnum1997",
     menuName = "Mag Bank Settings", -- A UNIQUE identifier for menu object.
 }
