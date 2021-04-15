@@ -4,20 +4,22 @@
 name: Release Generator
 
 # When a new push with a tag is called, the event is triggered
-on: 
+on:
   push:
-    branches:
-      - master
-    tags:
-      - v*
+      branches:
+          - master
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+      runs-on: ubuntu-latest
 
     steps:
       # We are generating the zip excluding the git files and .idea folder
      - uses: actions/checkout@v2
+      # Get the version from tag and store in ${{ steps.get_version.outputs.VERSION }}
+    - name: Get the version
+      id: get_version
+      run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
      - name: Zip Generator
        uses: thedoctor0/zip-release@master
        with:
@@ -27,6 +29,11 @@ jobs:
      - name: Create Release
        uses: ncipollo/release-action@v1
        with:
-        tag: $
+        tag: ${{ steps.get_version.outputs.VERSION }}
         artifacts: "MagBankSettings.zip"
         token: ${{ secrets.GITHUB_TOKEN }}
+      - name: curl
+        uses: wei/curl@v1
+        with:
+          args: '-H "x-api-token: secrets.ESOUI_TOKEN" -F "id=2743" -F "version=${{ steps.get_version.outputs.VERSION" -F "updatefile=@MagBankSettings.zip" https://api.esoui.com/addons/updatetest'
+
