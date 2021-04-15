@@ -10,6 +10,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 - Make it work with house coffers
 
+### [1.0.1] 14 Apr 2021
+
+- Change version in all locations to be uniform.
+- Add workflow to zip files in the proper format for Minion
+
 ### [1.0.0] 10 Mar 2021
 
 - Update API version
