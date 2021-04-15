@@ -37,5 +37,5 @@ jobs:
       - name: curl
         uses: wei/curl@v1
         with:
-          args: '-H "x-api-token: secrets.ESOUI_TOKEN" -F "id=2743" -F "version=${{ steps.get_version.outputs.VERSION" -F "updatefile=@MagBankSettings.zip" https://api.esoui.com/addons/updatetest'
+          args: '-H "x-api-token: secrets.ESOUI_TOKEN" -F "id=2743" -F "version=${{ steps.get_version.outputs.VERSION }}" -F "updatefile=@MagBankSettings.zip" https://api.esoui.com/addons/updatetest'
 
