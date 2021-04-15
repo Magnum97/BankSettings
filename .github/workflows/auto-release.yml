@@ -4,10 +4,11 @@
 name: Release Generator
 
 # When a new push with a tag is called, the event is triggered
-on:
-  push:
-    branches:
-      - master
+on: [push]
+#    branches:
+#      - master
+#    tags:
+#      - "1.*"
 
 jobs:
   package:
@@ -35,5 +36,5 @@ jobs:
       - name: curl
         uses: wei/curl@v1
         with:
-          args: '-H "x-api-token: secrets.ESOUI_TOKEN" -F "id=2743" -F "version=${{ steps.get_version.outputs.VERSION" -F "updatefile=@MagBankSettings.zip" https://api.esoui.com/addons/updatetest'
+          args: '-H "x-api-token: ${{ secrets.ESOUI_API_TOKEN }}" -F "id=2743" -F "version=${{ steps.get_version.outputs.VERSION }}" -F "updatefile=@MagBankSettings.zip" https://api.esoui.com/addons/updatetest'
 
