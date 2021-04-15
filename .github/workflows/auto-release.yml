@@ -1,0 +1,32 @@
+
+# This is a basic workflow to generate a zip and a release using GitHub Actions
+
+name: Release Generator
+
+# When a new push with a tag is called, the event is triggered
+on: 
+  push:
+    branches:
+      - master
+    tags:
+      - v*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # We are generating the zip excluding the git files and .idea folder
+     - uses: actions/checkout@v2
+     - name: Zip Generator
+       uses: thedoctor0/zip-release@master
+       with:
+        filename: 'MagBankSettings.zip'
+        exclusions: '*.git* *.idea/*'
+      # Creates a release uploading the release.zip file.
+     - name: Create Release
+       uses: ncipollo/release-action@v1
+       with:
+        tag: $
+        artifacts: "MagBankSettings.zip"
+        token: ${{ secrets.GITHUB_TOKEN }}
